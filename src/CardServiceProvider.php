@@ -2,10 +2,10 @@
 
 namespace Coroowicaksono\ChartJsIntegration;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
-use Illuminate\Support\Facades\Route;
 
 class CardServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class CardServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-apex-chart', __DIR__ . '/../dist/js/chart-js-integration.js');
+            Nova::script('nova-apex-chart', __DIR__.'/../dist/js/chart-js-integration.js');
         });
     }
 
@@ -33,8 +33,8 @@ class CardServiceProvider extends ServiceProvider
     protected function routes()
     {
         Route::middleware(['nova'])
-                ->prefix('/nova-vendor/coroowicaksono/check-data')
-                ->group(__DIR__.'/../routes/api.php');
+            ->prefix('/nova-vendor/coroowicaksono/check-data')
+            ->group(__DIR__.'/../routes/api.php');
     }
 
     /**
@@ -42,9 +42,5 @@ class CardServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-
-    }
-
+    public function register() {}
 }

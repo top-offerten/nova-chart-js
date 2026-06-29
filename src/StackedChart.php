@@ -2,8 +2,8 @@
 
 namespace Coroowicaksono\ChartJsIntegration;
 
-use Laravel\Nova\Card;
 use Illuminate\Support\Str;
+use Laravel\Nova\Card;
 
 class StackedChart extends Card
 {

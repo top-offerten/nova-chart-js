@@ -34,6 +34,7 @@ class LineChart extends Card
         foreach ($series as $key => $data) {
             $series[$key]['fill'] = false;
         }
+
         return $this->withMeta(['series' => $series]);
     }
 
