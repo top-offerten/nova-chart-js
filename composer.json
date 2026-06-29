@@ -8,17 +8,28 @@
         "chart js"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/coroo",
+    "homepage": "https://github.com/top-offerten/nova-chart-js",
     "authors": [
         {
             "name": "Kuncoro Wicaksono",
             "email": "coroo.wicaksono@gmail.com",
-            "role": "Software Engineer"
+            "role": "Original author"
+        },
+        {
+            "name": "ndberg",
+            "email": "code@bergerweb.ch",
+            "role": "Maintainer"
         }
     ],
     "require": {
-        "php": ">=8",
+        "php": "^8.4",
         "laravel/nova": "^5.0"
+    },
+    "require-dev": {
+        "driftingly/rector-laravel": "^2.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.14",
+        "rector/rector": "^2.3"
     },
     "autoload": {
         "psr-4": {
@@ -26,7 +37,21 @@
             "Coroowicaksono\\ChartJsIntegration\\Api\\": "src/api"
         }
     },
+    "scripts": {
+        "clean": "vendor/bin/rector && vendor/bin/pint && vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse",
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ],
+        "rector": "vendor/bin/rector",
+        "rector-dry": "vendor/bin/rector --dry-run"
+    },
     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
         "laravel": {
             "providers": [
                 "Coroowicaksono\\ChartJsIntegration\\CardServiceProvider"
